@@ -1,5 +1,5 @@
 const twoModule = () => {
-  const module = 'two';
+  const module = 'two1';
   console.log(module);
 };
 

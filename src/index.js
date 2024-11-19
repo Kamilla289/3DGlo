@@ -1,5 +1,3 @@
-import modules1 from './modules/one'
-import modules2 from './modules/two'
+import timer from './modules/timer'
 
-modules1()
-modules2()
+timer('25 november 2024')
