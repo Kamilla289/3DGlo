@@ -10,7 +10,7 @@ const modal = () => {
   const fadeIn = () => {
     if (document.documentElement.clientWidth > 768) {
       modal.style.display = 'block';
-      opacity += 0.01;
+      opacity += 0.1;
       modal.style.opacity = opacity;
 
       if(opacity < 1) {
@@ -24,7 +24,7 @@ const modal = () => {
   };
 
   const fadeOut = () => {
-    opacity -= 0.05;
+    opacity -= 0.1;
     modal.style.opacity = opacity;
     if(opacity > 0) {
       requestAnimationFrame(fadeOut);
