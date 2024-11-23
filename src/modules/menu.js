@@ -3,16 +3,23 @@ const menu = () => {
   const menu = document.querySelector('menu')
   const closeBtn = menu.querySelector('.close-btn');
   const menuItems = menu.querySelectorAll('ul>li>a');
+  const header = document.querySelector('header');
 
   const handleMenu = () => {
     menu.classList.toggle('active-menu');
   };
 
-  menuBtn.addEventListener('click', handleMenu);
-  closeBtn.addEventListener('click', handleMenu);
+  menu.addEventListener('click', (event) => {
+    if (event.target === closeBtn || event.target.closest('ul>li>a')) {
+      handleMenu();
+    }
+  });
 
-  menuItems.forEach(menuItem => menuItem.addEventListener('click', handleMenu));
-
+  header.addEventListener('click', (event) => {
+    if (event.target.closest('.menu')) {
+      handleMenu();
+    }
+  });
 };
 
 export default menu;

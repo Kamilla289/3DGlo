@@ -5,6 +5,7 @@ import calc from './modules/calc'
 import formMain from './modules/formMain'
 import formFooter from './modules/formFooter'
 import formModal from './modules/formModal'
+import tabs from './modules/tabs'
 
 timer('22 november 2024')
 menu()
@@ -13,3 +14,4 @@ calc()
 formFooter()
 formMain()
 formModal()
+tabs()

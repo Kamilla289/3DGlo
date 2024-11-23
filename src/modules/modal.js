@@ -1,7 +1,6 @@
 const modal = () => {
   const buttons = document.querySelectorAll('.popup-btn');
   const modal = document.querySelector('.popup');
-  const closeBtn = document.querySelector('.popup-close');
 
   let opacity = 0;
   modal.style.opacity = opacity;
@@ -39,9 +38,11 @@ const modal = () => {
     });
   });
 
-  closeBtn.addEventListener('click', () => {
-    fadeOut();
-  });
+  modal.addEventListener('click', (e) => {
+      if (!e.target.closest('.popup-content') || e.target.classList.contains('popup-close')) {
+        fadeOut();
+      }
+   });
 };
 
 export default modal
