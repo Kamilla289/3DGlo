@@ -5,16 +5,7 @@ const slider = () => {
   const timerInterval = 2000;
   let currentSlide = 0;
   let interval;
-
-  slides.forEach(() => {
-      portfolioDots.insertAdjacentHTML("beforeend", `<li class="dot"></li>`);
-  });
-  const dots = document.querySelectorAll(".dot");  // А некуда больше поставить... только так и работает. Был вариант полностью интегрировать в html, но это было бы странно. Пробовала через for, и тоже не удалось. Вот так:
-  //    for (let i = 0; i < currentSlide; i++) {
-  //   const dot = document.createElement('li');
-  //   dot.classList.add('dot');
-  //   if (i === 0) dot.classList.add('dot-active'); 
-  //   portfolioDots.appendChild(dot); }
+  let dots;
 
   const prevSlide = (elems, index, strClass) => {
     elems[index].classList.remove(strClass);
@@ -91,7 +82,21 @@ const slider = () => {
     }
   }, true);
 
-  startSlide(timerInterval)
+  const addDots = () => {
+    slides.forEach((slide, index) => {
+      const dot = document.createElement('li');
+      dot.classList.add('dot');
+    if (index === 0) {
+      dot.classList.add('dot-active');
+    }
+      dot.setAttribute('data-slide', index);
+      portfolioDots.appendChild(dot);
+    });
+    dots = document.querySelectorAll('.dot');
+  }
+    
+  addDots();
+  startSlide(timerInterval);
 }
 
 export default slider;
