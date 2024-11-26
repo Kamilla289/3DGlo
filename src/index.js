@@ -11,7 +11,7 @@ import sliderCarousel from './modules/swiper'
 timer('22 november 2024')
 menu()
 modal()
-calc()
+calc(100)
 formValid()
 tabs()
 slider()
