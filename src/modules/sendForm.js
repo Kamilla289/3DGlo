@@ -49,15 +49,15 @@ const sendForm = ({ formId, someElem = [] }) => {
         formElements.forEach(input => {
           input.value = ''
         });
-        // setTimeout(() => {
-        //   statusBlock.textContent = '';
-        // }, 3000);
+        setTimeout(() => {
+          statusBlock.textContent = '';
+        }, 3000);
       })
       .catch(error => {
         statusBlock.textContent = errorText;
-        // setTimeout(() => {
-        //   statusBlock.textContent = '';
-        // }, 5000);
+        setTimeout(() => {
+          statusBlock.textContent = '';
+        }, 5000);
       });
   } else {
     alert('Данные неправильные!');
