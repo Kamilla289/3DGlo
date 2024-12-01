@@ -1,6 +1,7 @@
 const sendForm = ({ formId, someElem = [] }) => {
  const form = document.getElementById(formId);
  const formElements = form.querySelectorAll('input');
+ const formEmail = document.querySelectorAll('.form-email');
  const statusBlock = document.createElement('div');
  const loadText = 'Загрузка...';
  const successText = 'Спасибо! Наш менеджер с вами свяжется';
@@ -48,14 +49,26 @@ const sendForm = ({ formId, someElem = [] }) => {
         formElements.forEach(input => {
           input.value = ''
         });
+        // setTimeout(() => {
+        //   statusBlock.textContent = '';
+        // }, 3000);
       })
       .catch(error => {
         statusBlock.textContent = errorText;
+        // setTimeout(() => {
+        //   statusBlock.textContent = '';
+        // }, 5000);
       });
   } else {
     alert('Данные неправильные!');
   }
  }
+
+ statusBlock.style.color = 'white';
+ 
+ formEmail.forEach(input => {
+  input.setAttribute('required', 'true');
+ });
 
   try {
     if (!form) {
